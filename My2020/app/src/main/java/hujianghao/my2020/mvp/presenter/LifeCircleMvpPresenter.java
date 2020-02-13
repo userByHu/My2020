@@ -1,6 +1,8 @@
 package hujianghao.my2020.mvp.presenter;
 
 
+import android.util.Log;
+
 import java.lang.ref.WeakReference;
 
 import hujianghao.my2020.mvp.ILifeCircle;
@@ -17,19 +19,19 @@ public abstract class LifeCircleMvpPresenter<T extends IMvpView> implements ILif
     }
 
     public LifeCircleMvpPresenter(IMvpView iMvpView) {
-        super();
         attachView(iMvpView);
         MvpControler mvpControler = iMvpView.getMvpControler();
         mvpControler.savePresenter(this);
     }
 
-    @Override
     public void attachView(IMvpView iMvpView) {
         if (weakReference == null) {
             weakReference = new WeakReference(iMvpView);
         } else {
             T view = (T) weakReference.get();
             if (view != iMvpView) {
+                // TODO: 2020-02-14 出现这种情况的场景是？咨询群
+                Log.e("LifeCircleMvpPresenter:", "出现这种情况的场景是?");
                 weakReference = new WeakReference(iMvpView);
             }
         }

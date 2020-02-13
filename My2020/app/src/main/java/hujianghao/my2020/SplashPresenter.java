@@ -22,7 +22,7 @@ public class SplashPresenter extends BaseMvpPresenter<ISplashContract.IView> imp
 
             @Override
             public void onFinish() {
-                getView().setTvTimerText("完成");
+                getView().setTvTimerText("跳过");
             }
         });
 

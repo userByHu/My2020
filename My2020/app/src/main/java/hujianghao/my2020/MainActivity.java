@@ -40,8 +40,7 @@ public class MainActivity extends BaseActivity {
     private boolean mIsChangeTopOrBottom;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void afterBindView() {
         changeAnime(mainBottomRg, mainTopRg);
     }
 
