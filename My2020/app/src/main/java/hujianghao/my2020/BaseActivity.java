@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import butterknife.ButterKnife;
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
 
     @Override
@@ -18,12 +18,20 @@ public class BaseActivity extends AppCompatActivity {
             int mainlayoutid = annotation.mainlayoutid();
             if(mainlayoutid > 0){
                 setContentView(mainlayoutid);
-                ButterKnife.bind(this);
+                bindView();
+                afterBindView();
+
             }else {
                 throw new RuntimeException("mainlayoutid < 0");
             }
         }else {
             throw new RuntimeException("annotation is n ull");
         }
+    }
+
+    protected abstract void afterBindView();
+
+    private void bindView() {
+        ButterKnife.bind(this);
     }
 }

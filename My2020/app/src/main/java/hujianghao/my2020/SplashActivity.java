@@ -1,38 +1,44 @@
 package hujianghao.my2020;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
 
 import java.io.File;
 
-public class SplashActivity extends AppCompatActivity {
+import butterknife.BindView;
+import butterknife.OnClick;
+import hujianghao.my2020.mvp.view.LifeCircleMvpActivity;
 
-    private VideoView mPlayVv;
-    private TextView mIgnoreTv;
-    private CustomCountDownTimer mCustomCountDownTimer;
+@ViewInject(mainlayoutid = R.layout.activity_splash)
+public class SplashActivity extends LifeCircleMvpActivity implements ISplashContract.IView {
+
+    @BindView(R.id.play_vv)
+    FullScreenVideoView mPlayVv;
+    @BindView(R.id.ignore_tv)
+    TextView mIgnoreTv;
+
+    private ISplashContract.Presenter mSplashPresenter;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+    protected void afterBindView() {
+        initTimerPresenter();
+        initVideoView();
+    }
 
-        mPlayVv = findViewById(R.id.play_vv);
+    private void initTimerPresenter() {
+        mSplashPresenter = new SplashPresenter(this);
+        mSplashPresenter.initCountDownTimer();
+    }
 
+
+    private void initVideoView() {
         mPlayVv.setVideoURI(Uri.parse("android.resource://" + getPackageName() + File.separator + R.raw.splash));
-
         mPlayVv.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mediaPlayer) {
@@ -46,40 +52,21 @@ public class SplashActivity extends AppCompatActivity {
                 mPlayVv.start();
             }
         });
+    }
 
 
-        mIgnoreTv = findViewById(R.id.ignore_tv);
-        mIgnoreTv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(TextUtils.equals(mIgnoreTv.getText(),"完成")){
-                    startActivity(new Intent(SplashActivity.this,MainActivity.class));
-                    finish();
-                }else {
-                    Toast.makeText(SplashActivity.this,"不可点击",Toast.LENGTH_LONG).show();
-                }
-
-            }
-        });
-
-        mCustomCountDownTimer = new CustomCountDownTimer(3, new CustomCountDownTimer.Callback() {
-            @Override
-            public void onTicker(int time) {
-                mIgnoreTv.setText(time + "秒");
-            }
-
-            @Override
-            public void onFinish() {
-                mIgnoreTv.setText( "完成");
-            }
-        });
-
-        mCustomCountDownTimer.start();
+    @OnClick(R.id.ignore_tv)
+    public void onViewClicked() {
+        if (TextUtils.equals(mIgnoreTv.getText(), "跳过")) {
+            startActivity(new Intent(SplashActivity.this, MainActivity.class));
+            finish();
+        } else {
+            Toast.makeText(SplashActivity.this, "不可点击", Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mCustomCountDownTimer.cancel();
+    public void setTvTimerText(String s) {
+        mIgnoreTv.setText(s);
     }
 }
