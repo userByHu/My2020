@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashActivity">
+    tools:context=".splash.SplashActivity">
 
 
-    <hujianghao.my2020.FullScreenVideoView
+    <hujianghao.my2020.splash.FullScreenVideoView
         android:id="@+id/play_vv"
         style="@style/video_view_style" />
 

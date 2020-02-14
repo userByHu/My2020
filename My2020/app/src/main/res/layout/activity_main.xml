@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".main.MainActivity">
 
 
     <FrameLayout
+        android:id="@+id/main_top_fl"
         android:layout_above="@id/main_bottom_fl"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -40,7 +41,8 @@
                 android:id="@+id/shanghai_rb"
                 android:text="@string/str_shanghai"
                 android:drawableTop="@drawable/main_shanghai_selector"
-                style="@style/main_bottom_style" />
+                style="@style/main_bottom_style"
+                android:checked="true"/>
 
             <RadioButton
                 android:id="@+id/hangzhou_rb"

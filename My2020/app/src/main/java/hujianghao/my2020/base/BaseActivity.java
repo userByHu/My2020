@@ -1,12 +1,12 @@
-package hujianghao.my2020;
+package hujianghao.my2020.base;
 
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import butterknife.ButterKnife;
+import hujianghao.my2020.mvp.view.LifeCircleMvpActivity;
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends LifeCircleMvpActivity {
 
 
     @Override

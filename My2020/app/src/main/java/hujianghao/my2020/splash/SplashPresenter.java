@@ -1,4 +1,4 @@
-package hujianghao.my2020;
+package hujianghao.my2020.splash;
 
 import hujianghao.my2020.mvp.base.BaseMvpPresenter;
 

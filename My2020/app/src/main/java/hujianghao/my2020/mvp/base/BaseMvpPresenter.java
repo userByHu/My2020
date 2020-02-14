@@ -9,17 +9,13 @@ import hujianghao.my2020.mvp.presenter.LifeCircleMvpPresenter;
 /**
  * p层的中间类
  */
-public class BaseMvpPresenter<T extends IMvpView > extends LifeCircleMvpPresenter<T> {
+public abstract class BaseMvpPresenter<T extends IMvpView > extends LifeCircleMvpPresenter<T> {
 
 
     public BaseMvpPresenter(T view){
         super(view);
     }
 
-    @Override
-    protected T getEmptyView() {
-        return null;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState, Intent intent, Bundle getArguments) {

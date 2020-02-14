@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import hujianghao.my2020.BaseActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import hujianghao.my2020.mvp.IMvpView;
 import hujianghao.my2020.mvp.MvpControler;
 
-public abstract class LifeCircleMvpActivity extends BaseActivity implements IMvpView {
+public abstract class LifeCircleMvpActivity extends AppCompatActivity implements IMvpView {
 
     private MvpControler mMvpControler;
 
@@ -60,7 +60,7 @@ public abstract class LifeCircleMvpActivity extends BaseActivity implements IMvp
         super.onResume();
         MvpControler mvpControler = getMvpControler();
         if(mvpControler != null){
-            mvpControler.onStart();
+            mvpControler.onResume();
         }
     }
 

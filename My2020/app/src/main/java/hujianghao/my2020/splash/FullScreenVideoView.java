@@ -1,4 +1,4 @@
-package hujianghao.my2020;
+package hujianghao.my2020.splash;
 
 import android.content.Context;
 import android.util.AttributeSet;

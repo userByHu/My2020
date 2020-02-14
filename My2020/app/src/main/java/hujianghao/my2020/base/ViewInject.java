@@ -1,4 +1,4 @@
-package hujianghao.my2020;
+package hujianghao.my2020.base;
 
 
 import java.lang.annotation.ElementType;

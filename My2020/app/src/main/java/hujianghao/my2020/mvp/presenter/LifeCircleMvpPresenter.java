@@ -24,6 +24,7 @@ public abstract class LifeCircleMvpPresenter<T extends IMvpView> implements ILif
         mvpControler.savePresenter(this);
     }
 
+    @Override
     public void attachView(IMvpView iMvpView) {
         if (weakReference == null) {
             weakReference = new WeakReference(iMvpView);

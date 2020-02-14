@@ -29,4 +29,5 @@ public interface ILifeCircle {
 
     void onSaveInstanceState(Bundle bundle);
 
+    void attachView(IMvpView iMvpView);
 }

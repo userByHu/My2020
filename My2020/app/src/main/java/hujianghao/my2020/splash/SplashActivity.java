@@ -1,9 +1,8 @@
-package hujianghao.my2020;
+package hujianghao.my2020.splash;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,10 +11,13 @@ import java.io.File;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import hujianghao.my2020.mvp.view.LifeCircleMvpActivity;
+import hujianghao.my2020.base.BaseActivity;
+import hujianghao.my2020.main.MainActivity;
+import hujianghao.my2020.R;
+import hujianghao.my2020.base.ViewInject;
 
 @ViewInject(mainlayoutid = R.layout.activity_splash)
-public class SplashActivity extends LifeCircleMvpActivity implements ISplashContract.IView {
+public class SplashActivity extends BaseActivity implements ISplashContract.IView {
 
     @BindView(R.id.play_vv)
     FullScreenVideoView mPlayVv;
