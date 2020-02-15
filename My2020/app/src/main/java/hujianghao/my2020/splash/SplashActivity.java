@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ public class SplashActivity extends BaseActivity implements ISplashContract.IVie
     protected void afterBindView() {
         initTimerPresenter();
         initVideoView();
+        Log.e("test git","111111111");
     }
 
     private void initTimerPresenter() {
