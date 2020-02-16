@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.hu.myknowage.animation.AnimationActivity;
+import com.hu.myknowage.animation.demo.AnimDemoActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,6 +15,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        startActivity(new Intent(MainActivity.this, AnimationActivity.class));
+        startActivity(new Intent(MainActivity.this, AnimDemoActivity.class));
     }
 }
