@@ -32,8 +32,6 @@ public class SplashActivity extends BaseActivity implements ISplashContract.IVie
     protected void afterBindView() {
         initTimerPresenter();
         initVideoView();
-        Log.e("test git","111111111");
-        Log.e("test git","子分支");
     }
 
     private void initTimerPresenter() {

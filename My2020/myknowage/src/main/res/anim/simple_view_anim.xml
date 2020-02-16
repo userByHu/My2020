@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillBefore="true"
+    android:interpolator="@android:anim/anticipate_interpolator"
+   >
+    <!--效果：1.向前平移，2.再向下平移，3.旋转45度，4.再向右平移，5.透明度降低40%-->
+    <!--各种效果是一起触发的！-->
+    <translate
+        android:duration="2000"
+        android:fromXDelta="50%"
+        android:fromYDelta="0"
+        android:toXDelta="100%"
+        android:toYDelta="0"
+        />
+
+    <translate
+        android:duration="3000"
+        android:fromXDelta="50"
+        android:fromYDelta="0"
+        android:toXDelta="50%"
+        android:toYDelta="100%"
+        android:startOffset="2000"/>
+
+<!--    <rotate
+        android:duration="2000"
+        android:fromDegrees="0"
+        android:pivotX="0"
+        android:pivotY="0"
+        android:toDegrees="45" />
+
+    <alpha
+        android:duration="1000"
+        android:fromAlpha="1"
+        android:toAlpha="0.4" />-->
+
+</set>
